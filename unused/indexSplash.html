@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+ <meta name="viewport"
+content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+<title>Brazilian Jiu Jitsu Tracker</title>
+
+
+   		 <!-------------  STYLES --------------->
+   <link type="text/css" rel="stylesheet" href="styles.css" />
+      <link type="text/css" rel="stylesheet" href="stylesMobile.css" />
+
+
+
+
+      	<!-------------  SCRIPTS --------------->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="scripts.js"></script>
+
+
+
+  <!--    THE FOLLOWING SCRIPT LOADS MOBILE OR DESKTOP STYLESHEET DEPENDING ON SCREEN SIZE -->
+  <script type="text/javascript">
+  if (window.innerWidth < 1024){
+	document.getElementById("divTest").innerHTML += "mobile stylesheet used";
+  document.write('<link href="stylesMobile.css" rel="stylesheet" type="text/css">');
+}
+else
+	{
+		document.getElementById("divTest").innerHTML += "desktop stylesheet used";
+		document.write('<link href="stylesDesktop.css" rel="stylesheet" type="text/css">');
+
+  }
+  </script>
+
+
+</head>
+
+
+
+
+
+<!---------------------BODY----------------------->
+
+<body onload="loadPage();" id="bodyIndex" onresize="reLoad();">
+
+
+<!--------------------SPLASH SCREEN-------------->
+
+<div id="screenDiv">
+<img  class="fadeIn fadeIn-5s bodyBg" id="imgSplashScreen" alt="" width="95%" /></div>
+
+<div id="allStuff" class="hiddenDiv">
+
+<!---------------------HEADER SECTION----------------------->
+<section id="headerSection">
+<header id="header1"><center><img src="images/headerBlkRed.jpg" width="100%"/></center></header>
+
+</section>
+
+
+
+<div id="contentsDiv">
+
+<div id="divCurrentBelt"><center>
+<img src="images/whiteBelt.jpg" width="80%"   id="imgBelt"/> </center></div>
+
+<!---------------------DISPLAY SECTION----------------------->
+<section id="contentsDisplaySection">
+
+<div id="divYouHaveAdded">&nbsp;</div> <!-- DISPLAYS MESSAGE WHEN TIME IS ADDED-->
+
+
+<p>Hours banked : <!-- DISPLAYS TOTAL HOURS BANKED, RETRIEVED FROM LOCAL STORAGE UPON LOAD-->
+  <input class="buttons" type="text" id="textShowHours" value="0" readonly></input>
+</p>
+
+<p>Date last added : <!--INDICATES LAST TIME MAT-TIME WAS ADDED-->
+<strong><span id="divDate"></span></strong></p>
+
+</section>
+
+
+
+
+
+<!---------------------USER INPUT SECTION----------------------->
+<section id="userInputSection">
+
+<!--------------SELECT CLASS LENGTH----------------->
+<select id="selectHours" class="buttons" onchange="addTime();">
+<!-- The initial value must be empty <option value=""> -->
+<option value="0">
+How long was today's class?</option>  <option value="15">15 min</option> <option value="30">30 min</option> <option value="45">45 min</option><option value="60">1 hr</option> <option value="75">1 hr 15 min</option> <option value="90">1 hr 30 min</option> <option value="105">1 hr 45 min</option> <option value="120">2 hr</option> <option value="135">2 hr 15 min</option> <option value="150">2 hr 30 min</option> <option value="165">2 hr 45 min</option> <option value="180">3 hr</option> <option value="195">3 hr 15 min</option> <option value="210">3 hr 30 min</option> <option value="225">3 hr 45 min</option> <option value="240">4 hr</option>
+      </select>
+<br /><br />
+<br />
+
+<input type="button" class="buttons" value="BELT PROMOTION" id="beltPromotion" onClick="beltPromotion();" /><br />
+
+<input type="button" class="buttons" value="RESET DATA" id="buttonReset" onClick="resetData();" /><br />
+
+<div id="divTest"></div>
+
+
+
+<!--------------Modal Window------------------>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="modalSpan" class="close" onclick="closeModal();">X</span>
+
+    <table width="50%">
+    <tr>
+    <td>
+    <form action="#" method="post" class="beltForm" id="beltForm">
+    <fieldset>
+        <legend>Please indicate your belt level...</legend>
+
+  <input type="radio" name="belt" value="0" checked="checked"> White<br>
+  <input type="radio" name="belt" value="1"> Blue<br>
+  <input type="radio" name="belt" value="2"> Purple<br />
+  <input type="radio" name="belt" value="3"> Brown<br>
+  <input type="radio" name="belt" value="4"> Black<br>
+
+   <br />
+
+   <p>And number of stripes...</p>
+
+   <input type="radio" name="stripes" value="0" checked="checked"> None<br>
+  <input type="radio" name="stripes" value="1"> 1<br>
+  <input type="radio" name="stripes" value="2"> 2<br>
+  <input type="radio" name="stripes" value="3"> 3<br />
+   <input type="radio" name="stripes" value="4"> 4<br>
+
+
+ <p><input type="button" class="buttons" name="getVal" value="SUBMIT" onclick="beltFormSubmit();"></p>
+
+    </fieldset>
+</form>
+</td>
+</tr>
+
+
+
+
+
+
+
+</table>
+<br />
+
+
+
+  </div>
+
+</div>
+
+
+</section>  <!--END USER INPUT SECTION-->
+</div><!--END CONTENTS DIV-->
+</div><!-- END ALL STUFF DIV-->
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+#imgLock{
+height:70px;
+width:120px;	
+}
+
+body, .buttons 
+{
+font-size:16px;
+}
